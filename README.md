@@ -9,10 +9,15 @@ drawMap.m - This draws the background (BGImage.png) and keeps it there.
 getCapt.m - Returns the specifics of a given captain.
 getTranslation.m - Returns a translation matrix for moving the captain.
 
-Function: <b>getTranslation</b>: number1 number2 -> matrix <br>
-Purpose : <b>Number1</b> represents the amount to shift in the x direction and <b>number2</b> the amount to shift in the y direction. getTranslation uses these numbers to create a 3x3 matrix thatwill translate an object as a 3xN when it multiplies the object matrix. <br>
-Dependencies: none. <br>
-Call : T = getTranslation(dx, dy) <br>
-Side Effects: None <br>
 
-Function: drawLine: vector, vector, color -> graphics handle <br>
+<b>getTranslation:</b> number1 number2 -> matrix 
+<br><b>Purpose:</b> number 1 represents the shift in X, and number 2 represents the shift in Y. Returns a 3x3 matrix that can be used to translate an object stored as a matrix with 3 rows and any amount of columns, if multiplied together.
+<br><b>Dependancies:</b> none
+<br><b>Call:</b> T = getTranslation(dx,dy) 
+<br><b>Side Effects:</b> None 
+<br>
+<br><b>getRotation:</b> number -> matrix
+<br><b>Purpose:</b> numer represents theta, the angle to rotate the captain by. Returns a 3x3 matrix that can be used to rotatr and object stored as a matrix with 3 rows and any amount of columns, if multiplied together.
+<br><b>Dependancies:</b> none
+<br><b>Call:</b> R = getRotation(theta)
+<br><b>Side Effects:</b> None 

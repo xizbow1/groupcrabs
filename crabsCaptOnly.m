@@ -14,14 +14,33 @@
 ## along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*-
-## @deftypefn {} {@var{retval} =} getRotation (@var{input1}, @var{input2})
+## @deftypefn {} {@var{retval} =} crabsCaptOnly (@var{input1}, @var{input2})
 ##
 ## @seealso{}
 ## @end deftypefn
 
 ## Author: xizbo <xizbo@SLAPTOP>
-## Created: 2023-09-27
+## Created: 2023-10-02
 
-function R = getRotation (theta)
-  R=[cos(theta) -sin(theta) 0; sin(theta) cos(theta) 0; 0 0 1];
+function crabsCaptOnly ()
+  [mapHeight,mapWidth] = drawMap("BGImage.png");
+  xCapt = 1000;
+  yCapt = 500;
+  thetaCapt = -pi/2;
+  sizeCapt = 50;
+  captGraphics = drawCaptain(xCapt, yCapt, thetaCapt, sizeCapt);
+  cmd="null";
+
+  while(cmd != "Q")
+  cmd = kbhit();
+  if(cmd == "w" || cmd == "a" || cmd == "d")
+  for i=1:length(captGraphics)
+    set(captGraphics(i), 'Visible','off');
+  endfor
+  [xCapt,yCapt,thetaCapt] = moveCaptTest(cmd,xCapt,yCapt,thetaCapt,mapWidth,mapHeight,sizeCapt);
+  captGraphics = drawCaptain(xCapt,yCapt,thetaCapt,sizeCapt);
+endif
+endwhile
+
+
 endfunction

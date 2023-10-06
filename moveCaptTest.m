@@ -14,14 +14,42 @@
 ## along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*-
-## @deftypefn {} {@var{retval} =} getRotation (@var{input1}, @var{input2})
+## @deftypefn {} {@var{retval} =} moveCaptTest (@var{input1}, @var{input2})
 ##
 ## @seealso{}
 ## @end deftypefn
 
 ## Author: xizbo <xizbo@SLAPTOP>
-## Created: 2023-09-27
+## Created: 2023-10-02
 
-function R = getRotation (theta)
-  R=[cos(theta) -sin(theta) 0; sin(theta) cos(theta) 0; 0 0 1];
+function [xCapt,yCapt,thetaCapt] = moveCaptTest (cmd, x, y, theta, width, height, size)
+
+  dTheta = pi/6;
+  dStep = 50;
+
+  if(cmd=="w")
+  %move forward
+  xTemp = x + dStep*cos(theta);
+  yTemp = y + dStep*sin(theta);
+
+  if(isOnMap(xTemp,yTemp,width,height,size))
+  xCapt=xTemp;
+  yCapt=yTemp;
+else
+  xCapt=x;
+  yCapt=y;
+  endif
+
+  thetaCapt = theta;
+  elseif(cmd=="a")
+  %rotate left
+  thetaCapt = theta-dTheta;
+  elseif(cmd=="d")
+  %rotate right
+  thetaCapt = theta+dTheta;
+else
+xCapt = x;
+yCapt = y;
+thetaCapt = theta;
+endif
 endfunction

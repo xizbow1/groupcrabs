@@ -24,6 +24,9 @@
 
 function [xCapt,yCapt,thetaCapt] = moveCaptTest (cmd, x, y, theta, width, height, size)
 
+  xCapt = x;
+  yCapt = y;
+  thetaCapt = theta;
   dTheta = pi/6;
   dStep = 50;
 
@@ -36,8 +39,6 @@ function [xCapt,yCapt,thetaCapt] = moveCaptTest (cmd, x, y, theta, width, height
   xCapt=xTemp;
   yCapt=yTemp;
 else
-  xCapt=x;
-  yCapt=y;
   endif
 
   thetaCapt = theta;
@@ -48,8 +49,6 @@ else
   %rotate right
   thetaCapt = theta+dTheta;
 else
-xCapt = x;
-yCapt = y;
 thetaCapt = theta;
 endif
 endfunction

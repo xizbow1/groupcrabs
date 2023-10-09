@@ -34,7 +34,7 @@ function crabs ()
     
     % move captain 
     
-    [xCapt,yCapt,thetaCapt] = moveCapt(cmd,xCapt,yCapt,thetaCapt);
+    [xCapt,yCapt,thetaCapt] = moveCaptTest(cmd,xCapt,yCapt,thetaCapt);
     
     % draw new captain
     

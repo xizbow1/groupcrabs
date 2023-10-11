@@ -10,33 +10,35 @@ the function uses "crabSize" to construct the points, by applying transformation
 
 }%
 
-
-
 % computes and returns the crab
 
 %{
 
-%left side
-cPt1 = [crabSize;crabSize;1]; %left shoulder
-cPt2 = [-crabSize;crabSize;1]; %left hip
-cPt3 = [-3*crabSize;crabSize;1]; %left foot
+%body
 
-%right side
-cPt4 = [-3*crabSize;-crabSize;1]; % right foot
-cPt5 = [-crabSize;-crabSize;1]; % right hip
-cPt6 = [crabSize;-crabSize;1]; % right foot
+  cPt1 = [1.5 * crabSize;crabSize;1]; %right shoulder
+  cPt2 = [1.5 * crabSize;-crabSize;1]; %right foot
+  cPt3 = [-1.5 * crabSize;-crabSize;1]; %left foot
+  cPt4 = [-1.5 * crabSize;crabSize;1]; % left shoulder
+
+%left claw
+
+  cPt5 = [-4/5 * crabSize;crabSize;1]; % left claw, body anchor
+  cPt6 = [crabSize;-crabSize;1]; % right foot
 
 %head
-cPt7 = [crabSize; -crabSize/2; 1]; %
-cPt8 = [2 *crabSize; -crabSize/2;1]; %
-cPt9 = [ 2*crabSize; crabSize/2; 1]; %
-cPt10 = [crabSize; crabSize/2; 1]; %
-cPt11 = [ 0; 2*crabSize; 1]; %left
-cPt12 = [ 0; -2*crabSize; 1]; %right
+
+  cPt7 = [crabSize; -crabSize/2; 1]; %
+  cPt8 = [2 *crabSize; -crabSize/2;1]; %
+  cPt9 = [ 2*crabSize; crabSize/2; 1]; %
+  cPt10 = [crabSize; crabSize/2; 1]; %
+  cPt11 = [ 0; 2*crabSize; 1]; %left
+  cPt12 = [ 0; -2*crabSize; 1]; %right
 
 %spear 
-cPt13 = [2*crabSize;-2*crabSize;1]; %spear point 
-cPt14 = [-crabSize;-2*crabSize;1];
+
+  cPt13 = [2*crabSize;-2*crabSize;1]; %spear point 
+  cPt14 = [-crabSize;-2*crabSize;1];
 
 %}
 

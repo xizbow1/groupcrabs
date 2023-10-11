@@ -1,5 +1,5 @@
-function retval = isInBounds (x,y,mapWidth,mapHeight)
+function inBounds = isInBounds (x,y,mapWidth,mapHeight,border)
  
- retval = ((0 < x) && (x < mapWidth) && (0 < y) && (y < mapHeight))
+ inBounds = ((border < x) && (x < (mapWidth - border)) && (border < y) && (y < (mapHeight - border)))
 
 endfunction

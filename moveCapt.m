@@ -10,27 +10,29 @@ function [xCapt,yCapt,thetaCapt] = moveCapt (cmd,x,y,theta,mapWidth,mapHeight)
   cosStep = dStep*cos(theta);
   sinStep = dStep*sin(theta);
   
-  %================= store a boolean for if the updated points would be in bounds==================
+  border = 5; % used in call to isInBounds
+
+ 
+
   
-  wxCapt = x + cosStep; %var for storing xCapt if 'w' is pressed
-  wyCapt = y + sinStep; %var for storing yCapt if 'w' is pressed
+  if( cmd == "w") 
   
-  boundsCheckW = isInBounds(wxCapt, wyCapt, mapWidth, mapHeight);
+    wxCapt = x + cosStep; %var for storing xCapt if 'w' is pressed
+    wyCapt = y + sinStep; %var for storing yCapt if 'w' is pressed
   
-  %=================
-  
-  sxCapt = x - cosStep; %var for storing xCapt if 'w' is pressed
-  syCapt = y - sinStep; %var for storing yCapt if 'w' is pressed
-  
-  boundsCheckS = isInBounds(sxCapt, syCapt, mapWidth, mapHeight);
-  
-  %=================
-  
-  if(( cmd == "w") && boundsCheckW)
-  
-    %move forward
-    xCapt = wxCapt;
-    yCapt = wyCapt;
+    if(isInBounds(wxCapt, wyCapt, mapWidth, mapHeight,border))
+    
+      %move forward
+      xCapt = wxCapt;
+      yCapt = wyCapt;
+   
+    else 
+    
+      xCapt = x;
+      yCapt = y;
+    
+    endif
+    
     thetaCapt = theta;
     
   elseif (cmd == "a")
@@ -42,9 +44,22 @@ function [xCapt,yCapt,thetaCapt] = moveCapt (cmd,x,y,theta,mapWidth,mapHeight)
     
   elseif ( cmd == "s" && boundsCheckS)
   
-    %move backward
-    xCapt = sxCapt;
-    yCapt = syCapt;
+    sxCapt = x - cosStep; %var for storing xCapt if 's' is pressed
+    syCapt = y - sinStep; %var for storing yCapt if 's' is pressed
+    
+    if(isInBounds(sxCapt, syCapt, mapWidth, mapHeight,border))
+     
+      %move backward
+      xCapt = sxCapt;
+      yCapt = syCapt;
+    
+    else
+      
+      xCapt = x;
+      yCapt = y;
+      
+    endif
+    
     thetaCapt = theta;
     
   elseif ( cmd == "d")

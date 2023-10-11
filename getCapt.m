@@ -13,11 +13,11 @@ cPt6 = [captSize;-captSize;1]; % right foot
 
 %head
 cPt7 = [captSize; -captSize/2; 1]; %
-cPt8 = [2 *captSize; -captSize/2;1]; %
-cPt9 = [ 2*captSize; captSize/2; 1]; %
+cPt8 = [2*captSize; -captSize/2;1]; %
+cPt9 = [2*captSize; captSize/2; 1]; %
 cPt10 = [captSize; captSize/2; 1]; %
-cPt11 = [ 0; 2*captSize; 1]; %left
-cPt12 = [ 0; -2*captSize; 1]; %right
+cPt11 = [0; 2*captSize; 1]; %left
+cPt12 = [0; -2*captSize; 1]; %right
 
 %spear 
 cPt13 = [2*captSize;-2*captSize;1]; %spear point 

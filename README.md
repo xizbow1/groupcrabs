@@ -21,3 +21,10 @@ getTranslation.m - Returns a translation matrix for moving the captain.
 <br><b>Dependancies:</b> none
 <br><b>Call:</b> R = getRotation(theta)
 <br><b>Side Effects:</b> None 
+
+<b>drawCaptain:</b> x, y, theta, size -> vector
+<br><b>Purpose:</b> Return the values of all of the different points to create a captain shape.
+<br><b>Dependancies:</b> none
+<br><b>Call:</b> captainGraphics = drawCaptain(xCapt, yCapt, thetaCapt, sizeCapt)
+<br><b>Side Effects:</b> None 
+<br>

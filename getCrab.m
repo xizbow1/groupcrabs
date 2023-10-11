@@ -24,24 +24,18 @@ the function uses "crabSize" to construct the points, by applying transformation
 %left claw
 
   cPt5 = [-4/5 * crabSize;crabSize;1]; % left claw, body anchor
-  cPt6 = [crabSize;-crabSize;1]; % right foot
+  cPt6 = [-1.5 * crabSize;2 * crabSize;1]; % left claw, middle
+  cPt7 = [-4/5 * crabSize;3 * crabSize; 1]; % left claw, point
 
-%head
+%right claw
 
-  cPt7 = [crabSize; -crabSize/2; 1]; %
-  cPt8 = [2 *crabSize; -crabSize/2;1]; %
-  cPt9 = [ 2*crabSize; crabSize/2; 1]; %
-  cPt10 = [crabSize; crabSize/2; 1]; %
-  cPt11 = [ 0; 2*crabSize; 1]; %left
-  cPt12 = [ 0; -2*crabSize; 1]; %right
-
-%spear 
-
-  cPt13 = [2*crabSize;-2*crabSize;1]; %spear point 
-  cPt14 = [-crabSize;-2*crabSize;1];
+ 
+  cPt8 = [4/5 * crabSize;crabSize;1]; % right claw, body anchor
+  cPt9 = [1.5 * crabSize;2 * crabSize; 1]; % right claw, middle
+  cPt10 = [-4/5 * crabSize;3 * crabSize; 1]; % right claw, point
 
 %}
 
-%crab = [cPt1,cPt2,cPt3,cPt4,cPt5,cPt6,cPt7,cPt8,cPt9,cPt10,cPt11,cPt12,cPt13,cPt14];
+%crab = [cPt1,cPt2,cPt3,cPt4,cPt5,cPt6,cPt7,cPt8,cPt9,cPt10,];
 
 endfunction

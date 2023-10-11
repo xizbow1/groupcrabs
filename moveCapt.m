@@ -11,9 +11,6 @@ function [xCapt,yCapt,thetaCapt] = moveCapt (cmd,x,y,theta,mapWidth,mapHeight)
   sinStep = dStep*sin(theta);
   
   border = 5; % used in call to isInBounds
-
- 
-
   
   if( cmd == "w") 
   

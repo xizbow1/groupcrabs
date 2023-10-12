@@ -6,6 +6,7 @@ function captainGraphics = drawCaptain (xCapt , yCapt , thetaCapt , sizeCapt)
 % Use your code from last week to get the captain matrix
 % for a captain of dimension sizeCapt. Notice that
 % sizeCapt is a parameter passed into drawCapt.
+
 capt = getCapt(sizeCapt);
 
 % TODO : Rotate captain from zero heading to heading thetaCapt

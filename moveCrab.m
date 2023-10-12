@@ -12,34 +12,25 @@ function [xCrab,yCrab,thetaCrab] = moveCrab (cmd,x,y,theta,mapWidth,mapHeight)
 
   border = 5; % used in call to isInBounds
 
-  if( cmd == "i")
-
-    wxCrab = x + cosStep; %var for storing xCrab if 'w' is pressed
-    wyCrab = y + sinStep; %var for storing yCrab if 'w' is pressed
-
-    if(isInBounds(wxCrab, wyCrab, mapWidth, mapHeight,border))
-
-      %move forward
-      xCrab = wxCrab;
-      yCrab = wyCrab;
-
-    else
-
-      xCrab = x;
-      yCrab = y;
-
-    endif
-
-    thetaCrab = theta;
-
-  elseif (cmd == "a")
+  if( cmd == "u")
 
     %rotate left
     xCrab = x;
     yCrab = y;
     thetaCrab = theta - dTheta;
 
-  elseif ( cmd == "l" && boundsCheck)
+  elseif (cmd == "o")
+
+    %rotate right
+    xCrab = x;
+    yCrab = y;
+    thetaCrab = theta + dTheta;
+    
+  elseif ( cmd == "j")
+
+    %move left
+    
+  elseif ( cmd == "k")
 
     sxCrab = x - cosStep; %var for storing xCrab if 's' is pressed
     syCrab = y - sinStep; %var for storing yCrab if 's' is pressed
@@ -58,10 +49,11 @@ function [xCrab,yCrab,thetaCrab] = moveCrab (cmd,x,y,theta,mapWidth,mapHeight)
     endif
 
     thetaCrab = theta;
+    
 
-  elseif ( cmd == "o")
+  elseif ( cmd == "l")
 
-    %rotate right
+    %move right
     xCrab = x;
     yCrab = y;
     thetaCrab = theta + dTheta;

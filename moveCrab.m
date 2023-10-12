@@ -39,7 +39,7 @@ function [xCrab,yCrab,thetaCrab] = moveCrab (cmd,x,y,theta,mapWidth,mapHeight)
     yCrab = y;
     thetaCrab = theta - dTheta;
 
-  elseif ( cmd == "k" && boundsCheckS)
+  elseif ( cmd == "k")
 
     sxCrab = x - cosStep; %var for storing xCrab if 's' is pressed
     syCrab = y - sinStep; %var for storing yCrab if 's' is pressed

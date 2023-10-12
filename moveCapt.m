@@ -39,7 +39,7 @@ function [xCapt,yCapt,thetaCapt] = moveCapt (cmd,x,y,theta,mapWidth,mapHeight)
     yCapt = y;
     thetaCapt = theta - dTheta;
     
-  elseif ( cmd == "s" && boundsCheckS)
+  elseif ( cmd == "s")
   
     sxCapt = x - cosStep; %var for storing xCapt if 's' is pressed
     syCapt = y - sinStep; %var for storing yCapt if 's' is pressed

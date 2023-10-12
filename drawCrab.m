@@ -1,3 +1,5 @@
-function retval = drawCrab (input1, input2)
+function crabGraphics = drawCrab (xCrab , yCrab , thetaCrab , sizeCrab)
+
+  
 
 endfunction

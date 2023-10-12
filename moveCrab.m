@@ -1,8 +1,8 @@
-function [xCapt,yCapt,thetaCapt] = moveCapt (cmd,x,y,theta,mapWidth,mapHeight)
+function [xCrab,yCrab,thetaCrab] = moveCrab (cmd,x,y,theta,mapWidth,mapHeight)
 
-  xCapt = x;
-  yCapt = y;
-  thetaCapt = theta;
+  xCrab = x;
+  yCrab = y;
+  thetaCrab = theta;
 
   dTheta = pi/6;
   dStep = 50;
@@ -12,66 +12,66 @@ function [xCapt,yCapt,thetaCapt] = moveCapt (cmd,x,y,theta,mapWidth,mapHeight)
 
   border = 5; % used in call to isInBounds
 
-  if( cmd == "w")
+  if( cmd == "i")
 
-    wxCapt = x + cosStep; %var for storing xCapt if 'w' is pressed
-    wyCapt = y + sinStep; %var for storing yCapt if 'w' is pressed
+    wxCrab = x + cosStep; %var for storing xCrab if 'w' is pressed
+    wyCrab = y + sinStep; %var for storing yCrab if 'w' is pressed
 
-    if(isInBounds(wxCapt, wyCapt, mapWidth, mapHeight,border))
+    if(isInBounds(wxCrab, wyCrab, mapWidth, mapHeight,border))
 
       %move forward
-      xCapt = wxCapt;
-      yCapt = wyCapt;
+      xCrab = wxCrab;
+      yCrab = wyCrab;
 
     else
 
-      xCapt = x;
-      yCapt = y;
+      xCrab = x;
+      yCrab = y;
 
     endif
 
-    thetaCapt = theta;
+    thetaCrab = theta;
 
   elseif (cmd == "a")
 
     %rotate left
-    xCapt = x;
-    yCapt = y;
-    thetaCapt = theta - dTheta;
+    xCrab = x;
+    yCrab = y;
+    thetaCrab = theta - dTheta;
 
-  elseif ( cmd == "s" && boundsCheckS)
+  elseif ( cmd == "k" && boundsCheckS)
 
-    sxCapt = x - cosStep; %var for storing xCapt if 's' is pressed
-    syCapt = y - sinStep; %var for storing yCapt if 's' is pressed
+    sxCrab = x - cosStep; %var for storing xCrab if 's' is pressed
+    syCrab = y - sinStep; %var for storing yCrab if 's' is pressed
 
-    if(isInBounds(sxCapt, syCapt, mapWidth, mapHeight,border))
+    if(isInBounds(sxCrab, syCrab, mapWidth, mapHeight,border))
 
       %move backward
-      xCapt = sxCapt;
-      yCapt = syCapt;
+      xCrab = sxCrab;
+      yCrab = syCrab;
 
     else
 
-      xCapt = x;
-      yCapt = y;
+      xCrab = x;
+      yCrab = y;
 
     endif
 
-    thetaCapt = theta;
+    thetaCrab = theta;
 
-  elseif ( cmd == "d")
+  elseif ( cmd == "l")
 
     %rotate right
-    xCapt = x;
-    yCapt = y;
-    thetaCapt = theta + dTheta;
+    xCrab = x;
+    yCrab = y;
+    thetaCrab = theta + dTheta;
 
   else
 
     %default
-    xCapt = x;
-    yCapt = y;
-    thetaCapt = theta;
+    xCrab = x;
+    yCrab = y;
+    thetaCrab = theta;
 
   endif
 

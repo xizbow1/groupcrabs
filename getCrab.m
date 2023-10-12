@@ -8,8 +8,6 @@ function crab = getCrab (crabSize)
 %the function uses "crabSize" to construct the points, by applying transformations to the variable
   %so that when "crabSize" changes, the drawing is still together
 
-
-
 % computes and returns the crab
 
 
@@ -36,6 +34,6 @@ function crab = getCrab (crabSize)
 
 
 
-%crab = [cPt1,cPt2,cPt3,cPt4,cPt5,cPt6,cPt7,cPt8,cPt9,cPt10,];
+crab = [cPt1,cPt2,cPt3,cPt4,cPt5,cPt6,cPt7,cPt8,cPt9,cPt10,];
 
 endfunction

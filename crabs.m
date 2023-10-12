@@ -47,7 +47,7 @@ function crabs ()
 
   endif
 
-  if( cmd == "u" || cmd == "o"|| cmd == "j" ||  cmd == "k" || cmd == "l" || )
+  if( cmd == "u" || cmd == "o"|| cmd == "j" ||  cmd == "k" || cmd == "l")
 
      % erase old crab
      for i =1:length(crabGraphics)

@@ -30,9 +30,7 @@ function crab = getCrab (crabSize)
  
   cPt8 = [4/5 * crabSize;crabSize;1]; % right claw, body anchor
   cPt9 = [1.5 * crabSize;2 * crabSize; 1]; % right claw, middle
-  cPt10 = [-4/5 * crabSize;3 * crabSize; 1]; % right claw, point
-
-
+  cPt10 = [4/5 * crabSize;3 * crabSize; 1]; % right claw, point
 
 crab = [cPt1,cPt2,cPt3,cPt4,cPt5,cPt6,cPt7,cPt8,cPt9,cPt10,];
 

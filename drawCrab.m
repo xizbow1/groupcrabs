@@ -59,14 +59,23 @@ function crabGraphics = drawCrab (xCrab , yCrab , thetaCrab , sizeCrab)
   crabGraphics(7) = drawLine(pt8 , pt9 , "r");
   crabGraphics(8) = drawLine(pt9 , pt10 , "r");
   crabGraphics(9) = drawLine(pt9 , pt10 , "r");
+  
   crabGraphics(10) = drawLine(pt11 , pt12 , "r");
   crabGraphics(11) = drawLine(pt12 , pt13 , "r");
+  
   crabGraphics(12) = drawLine(pt14 , pt15 , "r");
   crabGraphics(13) = drawLine(pt15 , pt16 , "r");
-  crabGraphics(14) = drawLine(pt16 , pt17 , "r");
+  
+  crabGraphics(14) = drawLine(pt17 , pt18 , "r");
   crabGraphics(15) = drawLine(pt18 , pt19 , "r");
-  crabGraphics(16) = drawLine(pt19 , pt20 , "r");
-  crabGraphics(17) = drawLine(pt20 , pt21 , "r");
-
+  
+  crabGraphics(16) = drawLine(pt20 , pt21 , "r");
+  crabGraphics(17) = drawLine(pt21 , pt22 , "r");
+  
+  crabGraphics(18) = drawLine(pt23 , pt24 , "r");
+  crabGraphics(19) = drawLine(pt24 , pt25 , "r");
+  
+  crabGraphics(20) = drawLine(pt26 , pt27 , "r");
+  crabGraphics(21) = drawLine(pt27 , pt28 , "r");
 
 endfunction

@@ -32,6 +32,35 @@ function crab = getCrab (crabSize)
   cPt9 = [1.5 * crabSize;2 * crabSize; 1]; % right claw, middle
   cPt10 = [4/5 * crabSize;3 * crabSize; 1]; % right claw, point
 
-crab = [cPt1,cPt2,cPt3,cPt4,cPt5,cPt6,cPt7,cPt8,cPt9,cPt10,];
+% left legs
+
+  cPt11 = [-1.5 * crabSize;0.5 * crabSize;1]; % top left body
+  cPt12 = [-2.5 * crabSize;0.5 * crabSize;1]; % top left elbow
+  cPt13 = [-3.5 * crabSize; -0.25 * crabSize;1]; % top left toe
+
+  cPt14 = [-1.5 * crabSize;0;1]; % mid left body
+  cPt15 = [-2.5 * crabSize;0;1]; % mid left elbow
+  cPt16 = [-3.5 * crabSize;-0.75 * crabSize;1]; % mid left toe
+
+  cPt17 = [-1.5 * crabSize]; % bottom left body
+  cPt18 = [-2.5 * crabSize]; % bottom left elbow
+  cPt19 = [-3.5 * crabSize]; % bottom left toe
+
+% right legs
+
+  cPt20 = [1.5 * crabSize;0.5 * crabSize;1]; % top left body
+  cPt21 = [2.5 * crabSize;0.5 * crabSize;1]; % top left elbow
+  cPt22 = [3.5 * crabSize; -0.25 * crabSize;1]; % top left toe
+
+  cPt23 = [1.5 * crabSize;0;1]; % mid left body
+  cPt24 = [2.5 * crabSize;0;1]; % mid left elbow
+  cPt25 = [3.5 * crabSize;-0.75 * crabSize;1]; % mid left toe
+
+  cPt26 = [1.5 * crabSize]; % bottom left body
+  cPt27 = [2.5 * crabSize]; % bottom left elbow
+  cPt28 = [3.5 * crabSize]; % bottom left toe
+
+ 
+crab = [cPt1,cPt2,cPt3,cPt4,cPt5,cPt6,cPt7,cPt8,cPt9,cPt10,cPt11,cPt12,cPt13,cPt14,cPt15,cPt16,cPt17,cPt18,cPt19,cPt20,cPt21,cPt22,cPt23,cPt24,cPt25,cPt26,cPt27,cPt28];
 
 endfunction

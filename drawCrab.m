@@ -30,6 +30,24 @@ function crabGraphics = drawCrab (xCrab , yCrab , thetaCrab , sizeCrab)
   pt8=crab( : , 8);
   pt9=crab( : , 9);
   pt10=crab( : , 10);
+  pt11=crab( : , 11);
+  pt12=crab( : , 12);
+  pt13=crab( : , 13);
+  pt14=crab( : , 14);
+  pt15=crab( : , 15);
+  pt16=crab( : , 16);
+  pt17=crab( : , 17);
+  pt18=crab( : , 18);
+  pt19=crab( : , 19);
+  pt20=crab( : , 20);
+  pt21=crab( : , 21);
+  pt22=crab( : , 22);
+  pt23=crab( : , 23);
+  pt24=crab( : , 24);
+  pt25=crab( : , 25);
+  pt26=crab( : , 26);
+  pt27=crab( : , 27);
+  pt28=crab( : , 28);
 
   % Draw the crab and set the return vector of graphics handles.
   crabGraphics(1) = drawLine(pt1 , pt2 , "r");
@@ -41,6 +59,14 @@ function crabGraphics = drawCrab (xCrab , yCrab , thetaCrab , sizeCrab)
   crabGraphics(7) = drawLine(pt8 , pt9 , "r");
   crabGraphics(8) = drawLine(pt9 , pt10 , "r");
   crabGraphics(9) = drawLine(pt9 , pt10 , "r");
+  crabGraphics(10) = drawLine(pt11 , pt12 , "r");
+  crabGraphics(11) = drawLine(pt12 , pt13 , "r");
+  crabGraphics(12) = drawLine(pt14 , pt15 , "r");
+  crabGraphics(13) = drawLine(pt15 , pt16 , "r");
+  crabGraphics(14) = drawLine(pt16 , pt17 , "r");
+  crabGraphics(15) = drawLine(pt18 , pt19 , "r");
+  crabGraphics(16) = drawLine(pt19 , pt20 , "r");
+  crabGraphics(17) = drawLine(pt20 , pt21 , "r");
 
 
 endfunction

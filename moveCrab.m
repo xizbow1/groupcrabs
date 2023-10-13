@@ -28,21 +28,34 @@ function [xCrab,yCrab,thetaCrab] = moveCrab (cmd,x,y,theta,mapWidth,mapHeight)
     
   elseif ( cmd == "j")
 
-    %move left
-    xCrab = x + cosStep;
-    yCrab = y + sinStep;
+    jxCrab = x + cosStep; %var for storing xCrab if 'j' is pressed
+    jyCrab = y + sinStep; %var for storing yCrab if 'j' is pressed
+
+    if(isInBounds(jxCrab, jyCrab, mapWidth, mapHeight,border))
+
+      %move backward
+      xCrab = jxCrab;
+      yCrab = jyCrab;
+
+    else
+
+      xCrab = x;
+      yCrab = y;
+
+    endif
+
     thetaCrab = theta;
     
   elseif ( cmd == "k")
 
-    sxCrab = x + sinStep; %var for storing xCrab if 's' is pressed
-    syCrab = y - cosStep; %var for storing yCrab if 's' is pressed
+    kxCrab = x + sinStep; %var for storing xCrab if 'k' is pressed
+    kyCrab = y - cosStep; %var for storing yCrab if 'k' is pressed
 
-    if(isInBounds(sxCrab, syCrab, mapWidth, mapHeight,border))
+    if(isInBounds(kxCrab, kyCrab, mapWidth, mapHeight,border))
 
       %move backward
-      xCrab = sxCrab;
-      yCrab = syCrab;
+      xCrab = kxCrab;
+      yCrab = kyCrab;
 
     else
 
@@ -55,10 +68,23 @@ function [xCrab,yCrab,thetaCrab] = moveCrab (cmd,x,y,theta,mapWidth,mapHeight)
     
 
   elseif ( cmd == "l")
+    
+    lxCrab = x - cosStep; %var for storing xCrab if 'l' is pressed
+    lyCrab = y - sinStep; %var for storing yCrab if 'l' is pressed
 
-    %move right
-    xCrab = x - cosStep;
-    yCrab = y - sinStep;
+    if(isInBounds(lxCrab, lyCrab, mapWidth, mapHeight,border))
+
+      %move backward
+      xCrab = lxCrab;
+      yCrab = lyCrab;
+
+    else
+
+      xCrab = x;
+      yCrab = y;
+
+    endif
+
     thetaCrab = theta;
 
   else

@@ -4,7 +4,7 @@ function crabs ()
  % hunts for a very clever and powerful crab.
  % Draw the game map and initialize map dimensions.
 
-[mapHeight , mapWidth] = drawMap( "BGImage.png" );
+ [mapHeight , mapWidth] = drawMap( "BGImage.png" );
 
  % Initialize captain location, heading and size
 
@@ -17,6 +17,7 @@ function crabs ()
   yCrab = 1000;
   thetaCrab = pi;
   sizeCrab = 30;
+  
  % Draw the captain and initialize graphics handles
 
   captainGraphics = drawCaptain(xCapt, yCapt, thetaCapt, sizeCapt);
@@ -34,7 +35,7 @@ function crabs ()
 
      % erase old captain
      for i =1:length(captainGraphics)
-        set(captainGraphics(i),'Visible','off');
+        delete(captainGraphics(i));
      endfor
 
     % move captain
@@ -51,7 +52,7 @@ function crabs ()
 
      % erase old crab
      for i =1:length(crabGraphics)
-        set(crabGraphics(i),'Visible','off');
+        delete(crabGraphics(i));
      endfor
 
     % move crab
@@ -68,6 +69,6 @@ function crabs ()
 
   endwhile
 
-
-close all
+  close all
+  clear
 endfunction

@@ -1,4 +1,4 @@
-function crabs ()
+function crabs (level)
 
  % Crabs is a kids computer game where a fisherman, called the captain,
  % hunts for a very clever and powerful crab.
@@ -13,23 +13,37 @@ function crabs ()
  thetaCapt = -pi/2;
  sizeCapt = 50;
 
-  xCrab = 1000;
-  yCrab = 1000;
-  thetaCrab = pi;
-  sizeCrab = 30;
-  
+xCrab = 1000;
+yCrab = 1000;
+thetaCrab = pi;
+sizeCrab = 30;
+
+xJelly = rand*mapWidth;
+yJelly = 0;
+thetaJelly = -pi/2;
+sizeJelly = 25;
+
  % Draw the captain and initialize graphics handles
 
   captainGraphics = drawCaptain(xCapt, yCapt, thetaCapt, sizeCapt);
   crabGraphics = drawCrab(xCrab, yCrab, thetaCrab, sizeCrab);
-
+  jellyGraphics = drawJelly(xJelly,yJelly,thetaJelly,sizeJelly)
   %initial command
   cmd ="null";
 
   while(cmd != "Q")
+    % erase old jellyfish
+    for i=1:length(jellyGraphics)
+    delete(jellyGraphics(i));
+    endfor
+    % move jellyfish
+    [xJelly,yJelly,thetaJelly] = moveJelly(level, xJelly, yJelly,thetaJelly, sizeJelly, mapHeight,mapWidth);
+    % draw jellyfish
+    jellyGraphics = drawJelly(xJelly,yJelly,thetaJelly,sizeJelly)
+
 
     % read keyboard
-    cmd = kbhit();
+    cmd = kbhit(1);
 
     if( cmd == "w" || cmd == "a" ||  cmd == "d" || cmd == "s")
 
@@ -65,7 +79,8 @@ function crabs ()
 
     endif
 
-
+fflush(stdout)
+pause(.01)
 
   endwhile
 

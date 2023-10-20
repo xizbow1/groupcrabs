@@ -1,27 +1,28 @@
-## Copyright (C) 2023 Roan Rafter
-##
-## This program is free software: you can redistribute it and/or modify
-## it under the terms of the GNU General Public License as published by
-## the Free Software Foundation, either version 3 of the License, or
-## (at your option) any later version.
-##
-## This program is distributed in the hope that it will be useful,
-## but WITHOUT ANY WARRANTY; without even the implied warranty of
-## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-## GNU General Public License for more details.
-##
-## You should have received a copy of the GNU General Public License
-## along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-## -*- texinfo -*-
-## @deftypefn {} {@var{retval} =} getJelly (@var{input1}, @var{input2})
-##
-## @seealso{}
-## @end deftypefn
+function jelly = getJelly (size)
 
-## Author: Roan Rafter <roan@Kevins-MacBook-Pro-4.local>
-## Created: 2023-10-20
+  %right side
+  pt1=[-7*size;size;1];
+  pt2=[-5*size;size;1 ];
+  pt3=[-3*size;2*size;1 ];
+  pt4=[-size;size;1 ];
+  pt5=[size;size;1 ];
 
-function retval = getJelly (input1, input2)
+
+  %middle
+  pt6=[-9*size;-2*size;1 ];
+  pt7=[-5*size;0;1 ];
+  pt8=[-3*size;-size;1 ];
+  pt9=[-size;0;1 ];
+
+
+  %left side
+   pt10=[-5*size;-size;1 ];
+   pt11=[-3*size;-2*size;1 ];
+   pt12=[-size;-size;1 ];
+   pt13=[size;-size;1 ];
+
+
+  jelly=[pt1,pt2,pt3,pt4,pt5,pt6,pt7,pt8,pt9,pt10,pt11,pt12,pt13];
 
 endfunction

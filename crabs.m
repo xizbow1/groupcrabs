@@ -8,20 +8,20 @@ function crabs (level)
 
  % Initialize captain location, heading and size
 
- xCapt = 1000;
- yCapt = 200;
- thetaCapt = -pi/2;
- sizeCapt = 50;
+  xCapt = 1000;
+  yCapt = 200;
+  thetaCapt = -pi/2;
+  sizeCapt = 50;
 
-xCrab = 1000;
-yCrab = 1000;
-thetaCrab = pi;
-sizeCrab = 30;
+  xCrab = 1000;
+  yCrab = 1000;
+  thetaCrab = pi;
+  sizeCrab = 30;
 
-xJelly = rand*mapWidth;
-yJelly = 0;
-thetaJelly = -pi/2;
-sizeJelly = 25;
+  xJelly = rand*mapWidth;
+  yJelly = 0;
+  thetaJelly = -pi/2;
+  sizeJelly = 25;
 
  % Draw the captain and initialize graphics handles
 
@@ -31,7 +31,7 @@ sizeJelly = 25;
   %initial command
   cmd ="null";
 
-  while(cmd != "Q")
+  while(1)
     % erase old jellyfish
     for i=1:length(jellyGraphics)
     delete(jellyGraphics(i));
@@ -41,7 +41,9 @@ sizeJelly = 25;
     % draw jellyfish
     jellyGraphics = drawJelly(xJelly,yJelly,thetaJelly,sizeJelly)
 
-
+    if(cmd == "Q")
+      break
+    endif
     % read keyboard
     cmd = kbhit(1);
 

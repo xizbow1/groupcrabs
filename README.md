@@ -4,10 +4,20 @@
 crabs.m - This handles all of the actual rendering of the captain and initializes the graphics handles.
 drawBox.m - This is an example of how to draw a box in Octave.
 drawCaptain.m - crabs.m uses this to figure out how to draw the captain
+drawCrab.m - 
+drawJelly.m - 
 drawLine.m - This is an example of how to draw a line in Octave.
 drawMap.m - This draws the background (BGImage.png) and keeps it there.
 getCapt.m - Returns the specifics of a given captain.
+getCrab.m - Returns the specifics of a given crab 🦀
+getDist.m -
+getJelly.m -
+getRotation.m -
 getTranslation.m - Returns a translation matrix for moving the captain.
+isInBounds.m -
+moveCapt.m -
+moveCrab.m -
+moveJelly.m -
 
 
 <b>getTranslation:</b> number1 number2 -> matrix 
@@ -26,5 +36,11 @@ getTranslation.m - Returns a translation matrix for moving the captain.
 <br><b>Purpose:</b> Return the values of all of the different points to create a captain shape.
 <br><b>Dependancies:</b> none
 <br><b>Call:</b> captainGraphics = drawCaptain(xCapt, yCapt, thetaCapt, sizeCapt)
+<br><b>Side Effects:</b> None 
+<br>
+<b>drawCrab:</b> x, y, theta, size -> vector
+<br><b>Purpose:</b> Return the values of all of the different points to create a crab shape.
+<br><b>Dependancies:</b> none
+<br><b>Call:</b> crabGraphics = drawCrab(xCrab, yCrab, thetaCrab, sizeCrab)
 <br><b>Side Effects:</b> None 
 <br>

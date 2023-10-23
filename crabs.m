@@ -13,8 +13,8 @@ function crabs (level)
   thetaCapt = -pi/2;
   sizeCapt = 50;
 
-  xCrab = 1000;
-  yCrab = 1000;
+  xCrab = 1000; % crab center X
+  yCrab = 1000; % crab center y
   thetaCrab = pi;
   sizeCrab = 30;
 
@@ -27,7 +27,7 @@ function crabs (level)
 
   captainGraphics = drawCaptain(xCapt, yCapt, thetaCapt, sizeCapt);
   crabGraphics = drawCrab(xCrab, yCrab, thetaCrab, sizeCrab);
-  jellyGraphics = drawJelly(xJelly,yJelly,thetaJelly,sizeJelly)
+  jellyGraphics = drawJelly(xJelly,yJelly,thetaJelly,sizeJelly);
   %initial command
   cmd ="null";
 
@@ -39,9 +39,9 @@ function crabs (level)
     % move jellyfish
     [xJelly,yJelly,thetaJelly] = moveJelly(level, xJelly, yJelly,thetaJelly, sizeJelly, mapHeight,mapWidth);
     % draw jellyfish
-    jellyGraphics = drawJelly(xJelly,yJelly,thetaJelly,sizeJelly)
+    jellyGraphics = drawJelly(xJelly,yJelly,thetaJelly,sizeJelly);
 
-    if(cmd == "Q")
+    if((cmd == "Q")||(getDist(xCrab, yCrab, xCapt, yCapt) <= 10))
       break
     endif
     % read keyboard

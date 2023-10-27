@@ -1,4 +1,4 @@
-function captainGraphics = drawCaptain (xCapt , yCapt , thetaCapt , sizeCapt)
+function [graphicsHandle,xNet,yNet] = drawCaptain (xCapt , yCapt , thetaCapt , sizeCapt)
 
 % This function returns a vector of graphics handles called captainGrapics.
 % The ith vector entry contains the graphics handle of ith line of the captain.
@@ -39,6 +39,7 @@ pt16=capt( : , 16);
 pt17=capt( : , 17);
 pt18=capt( : , 18);
 pt19=capt( : , 19);
+pt20=capt( : , 20);
 
 
 % Draw the captain and set the return vector of graphics handles.
@@ -60,4 +61,9 @@ captainGraphics(15) = drawLine(pt16 , pt17 , "k");
 captainGraphics(16) = drawLine(pt17 , pt18 , "k");
 captainGraphics(17) = drawLine(pt18 , pt19 , "k");
 captainGraphics(18) = drawLine(pt19 , pt13 , "k");
+
+%set the net center
+xNet = pt20(1);
+yNet = pt20(2);
+
 endfunction

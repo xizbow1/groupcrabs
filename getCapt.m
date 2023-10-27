@@ -27,9 +27,10 @@ cPt16 = [5 * captSize;-4 * captSize;1];
 cPt17 = [5 * captSize;-2*captSize;1];
 cPt18 = [5 * captSize;0;1];
 cPt19 = [3 * captSize;0;1;];
+cPt20 = [4 * captSize;-2 * captSize;1];
 
 
 
-capt = [cPt1,cPt2,cPt3,cPt4,cPt5,cPt6,cPt7,cPt8,cPt9,cPt10,cPt11,cPt12,cPt13,cPt14,cPt15,cPt16,cPt17,cPt18,cPt19];
+capt = [cPt1,cPt2,cPt3,cPt4,cPt5,cPt6,cPt7,cPt8,cPt9,cPt10,cPt11,cPt12,cPt13,cPt14,cPt15,cPt16,cPt17,cPt18,cPt19,cPt20];
 
 endfunction

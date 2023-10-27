@@ -42,11 +42,10 @@ function crabs (level)
   % print health status
   healthLoc = [100,100];
   catchLoc = [100,175];
-  crabsCaught = 0;
   healthStatus = text(healthLoc(1), healthLoc(2), strcat('Health = ', ...
   num2str(healthCapt)), 'FontSize', 12, 'Color', 'red');
   catchStatus = text(catchLoc(1), catchLoc(2), strcat('Crabs Caught = ', ...
-  num2str(crabsCaught)), 'FontSize', 12, 'Color', 'red');
+  num2str(catches)), 'FontSize', 12, 'Color', 'red');
 
 
   while(1)
@@ -56,7 +55,7 @@ function crabs (level)
     delete(catchStatus);
     healthStatus = text(healthLoc(1), healthLoc(2), strcat('Health = ', num2str(healthCapt)), 'FontSize', 12, 'Color', 'red');
 
-    catchStatus = text(catchLoc(1), catchLoc(2), strcat('Crabs Caught = ', num2str(crabsCaught)), 'FontSize', 12, 'Color', 'red');
+    catchStatus = text(catchLoc(1), catchLoc(2), strcat('Crabs Caught = ', num2str(catches)), 'FontSize', 12, 'Color', 'red');
 
 
     if ( getDist(xJelly,yJelly,xCapt,yCapt) < 3*sizeCapt )
@@ -91,7 +90,7 @@ function crabs (level)
 
     % draw new captain
 
-    captainGraphics = drawCaptain(xCapt, yCapt, thetaCapt, sizeCapt);
+    [captainGraphics,xNet,yNet] = drawCaptain(xCapt, yCapt, thetaCapt, sizeCapt);
 
   endif
 
@@ -100,7 +99,7 @@ function crabs (level)
     catches = catches +1;
     %erase old crab
     for i=1:length(crabGraphics)
-    delete(crabGraphics(i));
+      delete(crabGraphics(i));
     endfor
     %create a new crab. initialize new crab location, heading and size
     xCrab = rand*mapWidth;

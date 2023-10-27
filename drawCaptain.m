@@ -1,4 +1,4 @@
-function [graphicsHandle,xNet,yNet] = drawCaptain (xCapt , yCapt , thetaCapt , sizeCapt)
+function [captainGraphics,xNet,yNet] = drawCaptain (xCapt , yCapt , thetaCapt , sizeCapt)
 
 % This function returns a vector of graphics handles called captainGrapics.
 % The ith vector entry contains the graphics handle of ith line of the captain.

@@ -42,6 +42,7 @@ function crabs (level)
   % print health status
   healthLoc = [100,100];
   catchLoc = [100,175];
+  crabsCaught = 0;
   healthStatus = text(healthLoc(1), healthLoc(2), strcat('Health = ', ...
   num2str(healthCapt)), 'FontSize', 12, 'Color', 'red');
   catchStatus = text(catchLoc(1), catchLoc(2), strcat('Crabs Caught = ', ...

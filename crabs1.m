@@ -101,7 +101,7 @@ function crabs1 (level)
 
   endif
 
-  for k = 1:numCrabs
+  for k = 1:numCrabs 
  
     if(!isCrabCaught(k) && (getDist(xNet,yNet,xCrab(k),yCrab(k)) < 2*sizeCapt ))%crab is caught
       %keep track of how many crabs are caught
@@ -112,17 +112,19 @@ function crabs1 (level)
         for i=1:length(crabGraphics(:,k))
           delete(crabGraphics(i,k));
         endfor
+      
       %create a new crab. initialize new crab location, heading and size
-        xCrab = rand*mapWidth;
-        yCrab = rand*mapHeight;
-        thetaCrab = -pi/2;
-        sizeCrab = 50;
+       % xCrab = rand*mapWidth;
+       % yCrab = rand*mapHeight;
+       % thetaCrab = -pi/2;
+       % sizeCrab = 50;
       %draw new crab
-      crabGraphics = drawCrab(xCrab,yCrab,thetaCrab,sizeCrab);
+      %crabGraphics = drawCrab(xCrab,yCrab,thetaCrab,sizeCrab);
+          
     endif
   endfor
 
-fflush(stdout)
+fflush(stdout);
 pause(.01)
 
   endwhile

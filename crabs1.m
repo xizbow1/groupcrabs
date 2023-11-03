@@ -1,4 +1,4 @@
-function crabs (level)
+function crabs1 (level)
 
  % Crabs is a kids computer game where a fisherman, called the captain,
  % hunts for a very clever and powerful crab.
@@ -78,7 +78,7 @@ function crabs (level)
     % draw jellyfish
     jellyGraphics = drawJelly(xJelly,yJelly,thetaJelly,sizeJelly);
 
-    if((cmd == "Q")||(getDist(xCrab, yCrab, xCapt, yCapt) <= 10))
+    if((cmd == "Q")||(getDist(xCrab(1), yCrab(1), xCapt, yCapt) <= 10))
       break
     endif
     % read keyboard

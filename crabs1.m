@@ -122,23 +122,6 @@ function crabs1 (level)
     endif
   endfor
 
-  if( cmd == "u" || cmd == "o"|| cmd == "j" ||  cmd == "k" || cmd == "l")
-
-     % erase old crab
-     for i =1:length(crabGraphics)
-        delete(crabGraphics(i));
-     endfor
-
-    % move crab
-
-    [xCrab,yCrab,thetaCrab] = moveCrab(cmd,xCrab,yCrab,thetaCrab,mapWidth,mapHeight);
-
-    % draw new captain
-
-    crabGraphics = drawCrab(xCrab, yCrab, thetaCrab, sizeCrab);
-
-    endif
-
 fflush(stdout)
 pause(.01)
 

@@ -1,52 +1,51 @@
 function crabs (level)
 
- numCrabs = level;
-
-
  % Crabs is a kids computer game where a fisherman, called the captain,
  % hunts for a very clever and powerful crab.
  % Draw the game map and initialize map dimensions.
 
  [mapHeight , mapWidth] = drawMap( "BGImage.png" );
 
+ numCrabs = level;
+ numJellies = level;
+ 
  % Initialize captain location, heading and size
-
-  xCapt = 1000;
-  yCapt = 200;
-  thetaCapt = -pi/2;
-  sizeCapt = 50;
-  healthCapt = 100;
-  catches = 0;
+    xCapt = 1000;
+    yCapt = 200;
+    thetaCapt = -pi/2;
+    sizeCapt = 50;
+    healthCapt = 100;
+    catches = 0;
 
  % Initialize crab location, heading and size
-
-  xCrab = 1000; % crab center X
-  yCrab = 1000; % crab center y
-  thetaCrab = pi;
-  sizeCrab = 30;
+    %xCrab = 1000; % crab center X
+    %yCrab = 1000; % crab center y
+    %thetaCrab = pi;
+    xCrab = rand(1,numCrabs)*mapWidth;
+    yCrab = 0.75*mapHeight + rand(1,numCrabs)*mapHeight/4;
+    thetaCrab = ones(1,numCrabs)*(pi/2);
+    isCrabCaught = zeros(1,numCrabs);
+    sizeCrab = 30;
 
  % Initialize jelly  location, heading and size
+    xJelly = rand(1,numJellies)*mapWidth;
+    yJelly = mapHeight + rand(1,numJellies)*mapHeight;
+    thetaJelly = ones(1,numCrabs)*(-pi/2);
+    sizeJelly = 25;
+    jellySting = 2;
 
-  xJelly = rand*mapWidth;
-  yJelly = 0;
-  thetaJelly = -pi/2;
-  sizeJelly = 25;
-  jellySting = 2;
-
-  %initialize crab location, heading and size
-  xCrab = rand(1,numCrabs)*mapWidth;
-  yCrab = 3*mapHeight/4 + rand(1,numCrabs)*mapHeight/4;
-  thetaCrab = ones(1,numCrabs)*(-pi/2);
-  crabsCaught = 0;
-  sizeCrab = 50;
-  isCrabCaught = zeros(1,numCrabs)
-
- % Draw the captain and initialize graphics handles
-
-
-  [captainGraphics,xNet,yNet] = drawCaptain(xCapt, yCapt, thetaCapt, sizeCapt);
-  crabGraphics = drawCrab(xCrab, yCrab, thetaCrab, sizeCrab);
-  jellyGraphics = drawJelly(xJelly,yJelly,thetaJelly,sizeJelly);
+ %Draw the captain and initialize graphics handles
+    [captainGraphics,xNet,yNet] = drawCaptain(xCapt, yCapt, thetaCapt, sizeCapt);
+ %draw crabs
+    for k = 1:numCrabs
+      if(!isCrabCaught(k))
+        crabGraphics(:,k) = drawCrab(xCrab(k), yCrab(k), thetaCrab(k), sizeCrab);
+      endif
+    endfor
+  %draw jelly
+  for j = 1:numJellies
+    jellyGraphics(:,j) = drawJelly(xJelly(j),yJelly(j),thetaJelly(j),sizeJelly);
+  endfor
   %initial command
   cmd ="null";
 
@@ -67,22 +66,31 @@ function crabs (level)
     healthStatus = text(healthLoc(1), healthLoc(2), strcat('Health = ', num2str(healthCapt)), 'FontSize', 12, 'Color', 'red');
 
     catchStatus = text(catchLoc(1), catchLoc(2), strcat('Crabs Caught = ', num2str(catches)), 'FontSize', 12, 'Color', 'red');
-
-
-    if ( getDist(xJelly,yJelly,xCapt,yCapt) < 3*sizeCapt )
-      healthCapt = healthCapt - jellySting;
-    endif
+  
+  % check for jelly collision with capt
+   for j = 1:numJellies
+      if ( getDist(xJelly(j),yJelly(j),xCapt,yCapt) < 3*sizeCapt )
+        healthCapt = healthCapt - jellySting;
+      endif
+   endfor
 
     % erase old jellyfish
-    for i=1:length(jellyGraphics)
-    delete(jellyGraphics(i));
-    endfor
+  for i=1:numJellies
+    for j=1:length(jellyGraphics(:,i))
+          delete(jellyGraphics(j,i));
+        endfor
+  endfor
+  
+  
+  
     % move jellyfish
-    [xJelly,yJelly,thetaJelly] = moveJelly(level, xJelly, yJelly,thetaJelly, sizeJelly, mapHeight,mapWidth);
-    % draw jellyfish
-    jellyGraphics = drawJelly(xJelly,yJelly,thetaJelly,sizeJelly);
-
-    if((cmd == "Q")||(getDist(xCrab, yCrab, xCapt, yCapt) <= 10))
+    for j = 1:numJellies
+      [xJelly(j),yJelly(j),thetaJelly(j)] = moveJelly(level, xJelly(j), yJelly(j),thetaJelly(j), sizeJelly, mapHeight,mapWidth);
+      
+      % draw jellyfish
+      jellyGraphics(:,j) = drawJelly(xJelly(j),yJelly(j),thetaJelly(j),sizeJelly);
+    endfor
+    if((cmd == "Q"))
       break
     endif
     % read keyboard
@@ -105,40 +113,22 @@ function crabs (level)
 
   endif
 
-  if( getDist(xNet,yNet,xCrab,yCrab) < 2*sizeCapt ) %crab is caught
-    %keep track of how many crabs are caught
-    catches = catches +1;
-    %erase old crab
-    for i=1:length(crabGraphics)
-      delete(crabGraphics(i));
-    endfor
-    %create a new crab. initialize new crab location, heading and size
-    xCrab = rand*mapWidth;
-    yCrab = rand*mapHeight;
-    thetaCrab = -pi/2;
-    sizeCrab = 50;
-    %draw new crab
-    crabGraphics = drawCrab(xCrab,yCrab,thetaCrab,sizeCrab);
-  endif
-
-  if( cmd == "u" || cmd == "o"|| cmd == "j" ||  cmd == "k" || cmd == "l")
-
-     % erase old crab
-     for i =1:length(crabGraphics)
-        delete(crabGraphics(i));
-     endfor
-
-    % move crab
-
-    [xCrab,yCrab,thetaCrab] = moveCrab(cmd,xCrab,yCrab,thetaCrab,mapWidth,mapHeight);
-
-    % draw new captain
-
-    crabGraphics = drawCrab(xCrab, yCrab, thetaCrab, sizeCrab);
-
+  for k = 1:numCrabs 
+ 
+    if(!isCrabCaught(k) && (getDist(xNet,yNet,xCrab(k),yCrab(k)) < 2*sizeCapt ))%crab is caught
+      %keep track of how many crabs are caught
+        isCrabCaught(k)=1;
+        catches = catches +1;
+      
+      %erase old crab
+        for i=1:length(crabGraphics(:,k))
+          delete(crabGraphics(i,k));
+        endfor
+          
     endif
+  endfor
 
-fflush(stdout)
+fflush(stdout);
 pause(.01)
 
   endwhile

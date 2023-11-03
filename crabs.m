@@ -23,7 +23,7 @@ function crabs (level)
     %thetaCrab = pi;
     xCrab = rand(1,numCrabs)*mapWidth;
     yCrab = 0.75*mapHeight + rand(1,numCrabs)*mapHeight/4;
-    thetaCrab = ones(1,numCrabs)*(pi/2);
+    thetaCrab = ones(1,numCrabs)*(pi);
     isCrabCaught = zeros(1,numCrabs);
     sizeCrab = 30;
 

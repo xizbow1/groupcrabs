@@ -1,5 +1,8 @@
 function crabs (level)
 
+ numCrabs = level;
+
+
  % Crabs is a kids computer game where a fisherman, called the captain,
  % hunts for a very clever and powerful crab.
  % Draw the game map and initialize map dimensions.
@@ -29,6 +32,14 @@ function crabs (level)
   thetaJelly = -pi/2;
   sizeJelly = 25;
   jellySting = 2;
+
+  %initialize crab location, heading and size
+  xCrab = rand(1,numCrabs)*mapWidth;
+  yCrab = 3*mapHeight/4 + rand(1,numCrabs)*mapHeight/4;
+  thetaCrab = ones(1,numCrabs)*(-pi/2);
+  crabsCaught = 0;
+  sizeCrab = 50;
+  isCrabCaught = zeros(1,numCrabs)
 
  % Draw the captain and initialize graphics handles
 

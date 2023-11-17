@@ -48,8 +48,8 @@ function [xCrab,yCrab,thetaCrab] = moveCrab (cmd,x,y,theta,mapWidth,mapHeight)
     
   elseif ( cmd == "k")
 
-    kxCrab = x + sinStep; %var for storing xCrab if 'k' is pressed
-    kyCrab = y - cosStep; %var for storing yCrab if 'k' is pressed
+    kxCrab = x - cosStep; %var for storing xCrab if 'k' is pressed
+    kyCrab = y - sinStep; %var for storing yCrab if 'k' is pressed
 
     if(isInBounds(kxCrab, kyCrab, mapWidth, mapHeight,border))
 

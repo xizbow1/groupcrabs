@@ -71,21 +71,19 @@ function crabs (level)
 
     catchStatus = text(catchLoc(1), catchLoc(2), strcat('Crabs Caught = ', num2str(catches)), 'FontSize', 12, 'Color', 'red');
   
-  % check for jelly collision with capt
-   for j = 1:numJellies
+    % check for jelly collision with capt
+    for j = 1:numJellies
       if ( getDist(xJelly(j),yJelly(j),xCapt,yCapt) < 3*sizeCapt )
         healthCapt = healthCapt - jellySting;
       endif
-   endfor
+    endfor
 
     % erase old jellyfish
-  for i=1:numJellies
-    for j=1:length(jellyGraphics(:,i))
-          delete(jellyGraphics(j,i));
-        endfor
-  endfor
-  
-  
+    for i=1:numJellies
+      for j=1:length(jellyGraphics(:,i))
+        delete(jellyGraphics(j,i));
+      endfor
+    endfor
   
     % move jellyfish
     for j = 1:numJellies
@@ -97,15 +95,16 @@ function crabs (level)
     if((cmd == "Q"))
       break
     endif
+    
     % read keyboard
+    commandwindow();
     cmd = kbhit(1);
-
     if( cmd == "w" || cmd == "a" ||  cmd == "d" || cmd == "s")
-
-     % erase old captain
-     for i =1:length(captainGraphics)
+    
+      % erase old captain
+      for i =1:length(captainGraphics)
         delete(captainGraphics(i));
-     endfor
+      endfor
 
     % move captain
 
@@ -117,6 +116,27 @@ function crabs (level)
 
   endif
 
+  for k=1:numCrabs
+      
+	    if( !isCrabCaught(k) && getDist(xNet,yNet,xCrab(k),yCrab(k)) < 7*sizeCapt )
+
+        % erase the old crab as already done in crabs
+          for i=1:length(crabGraphics(:,k))
+            delete(crabGraphics(i,k));
+          endfor
+
+        % compute the crab’s angle to the net with getTheta and the components suggested above
+          thetaCrab(k) = getTheta(xNet - xCrab(k), yNet - yCrab(k));
+      
+        % call moveCrab(). To move backwards use cmd =”k”
+          [xCrab(k), yCrab(k), thetaCrab(k)] = moveCrab("k", xCrab(k), yCrab(k), thetaCrab(k), mapWidth, mapHeight);
+
+        % draw the crab as already done in crabs
+          crabGraphics(:,k) = drawCrab(xCrab(k), yCrab(k), thetaCrab(k), sizeCrab);
+      endif
+      
+    endfor
+  
   for k = 1:numCrabs 
  
     if(!isCrabCaught(k) && (getDist(xNet,yNet,xCrab(k),yCrab(k)) < 2*sizeCapt ))%crab is caught

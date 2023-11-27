@@ -4,9 +4,9 @@ function crabs (level)
  % hunts for a very clever and powerful crab.
  % Draw the game map and initialize map dimensions.
 
- %restart = 1;
- %while(restart)
- %endwhile
+ playgame = 1;
+ while(playgame)
+
  
  [mapHeight , mapWidth] = drawMap( "BGImage.png" );
 
@@ -156,7 +156,7 @@ fflush(stdout);
 pause(.01)
 
   endwhile
-
+ endwhile
   close all
   clear
 endfunction

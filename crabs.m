@@ -94,9 +94,8 @@ function crabs ()
         % draw jellyfish
         jellyGraphics(:,j) = drawJelly(xJelly(j),yJelly(j),thetaJelly(j),sizeJelly);
       endfor
-      if((cmd == "Q"))
-        break
-      endif
+
+
 
       % read keyboard
       commandwindow();
@@ -116,7 +115,8 @@ function crabs ()
 
       [captainGraphics,xNet,yNet] = drawCaptain(xCapt, yCapt, thetaCapt, sizeCapt);
 
-      endif
+    endif
+
 
       for k=1:numCrabs
 
@@ -153,7 +153,12 @@ function crabs ()
 
         endif
 
-      endfor
+    endfor
+
+
+     if(cmd == "Q" || catches == numCrabs || healthCapt <= 0)
+        break;
+      endif
 
 
       fflush(stdout);
@@ -161,9 +166,11 @@ function crabs ()
 
     endwhile
 
-    playGame = drawEndScreen("endScreen.png",crabsCaught,numCrabs);
-
-
+      if(catches != numCrabs)
+        playGame = drawEndScreen("CrabsWin.png",catches,numCrabs);
+      elseif
+        playGame = drawEndScreen("CaptainWins.png",catches,numCrabs);
+      endif
 
   endwhile
 

@@ -166,7 +166,7 @@ function crabs ()
 
     endwhile
 
-      if(healthCapt <= 0)
+      if(catches != numCrabs)
         playGame = drawEndScreen("CrabsWin.png",catches,numCrabs);
       elseif
         playGame = drawEndScreen("CaptainWins.png",catches,numCrabs);

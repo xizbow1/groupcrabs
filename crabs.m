@@ -8,7 +8,7 @@ function crabs ()
  cmd ="null";
 
   playgame = 1;
-  while(playgame && cmd != "Q")
+  while(playgame == 1 && cmd != "Q")
 
    level = drawStartScreen( "StartScreen.png" );
 
@@ -155,8 +155,12 @@ function crabs ()
 
     endfor
 
-
-     if(cmd == "Q" || catches == numCrabs || healthCapt <= 0)
+    if(cmd == "Q")
+      close all;
+      return;
+    endif
+    
+     if(catches == numCrabs || healthCapt <= 0)
         break;
       endif
 
@@ -167,9 +171,9 @@ function crabs ()
     endwhile
 
       if(catches != numCrabs)
-        playGame = drawEndScreen("CrabsWin.png",catches,numCrabs);
+        playgame = drawEndScreen("CrabsWin.png",catches,numCrabs);
       else
-        playGame = drawEndScreen("CaptainWins.png",catches,numCrabs);
+        playgame = drawEndScreen("CaptainWins.png",catches,numCrabs);
       endif
 
   endwhile

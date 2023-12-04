@@ -10,7 +10,7 @@ function crabs ()
   playgame = 1;
   while(playgame && cmd != "Q")
 
-   level = drawStartScreen( "crowSprite.png" );
+   level = drawStartScreen( "StartScreen.png" );
 
    [mapHeight , mapWidth] = drawMap( "BGImage.png" );
 
@@ -168,7 +168,7 @@ function crabs ()
 
       if(catches != numCrabs)
         playGame = drawEndScreen("CrabsWin.png",catches,numCrabs);
-      elseif
+      else
         playGame = drawEndScreen("CaptainWins.png",catches,numCrabs);
       endif
 

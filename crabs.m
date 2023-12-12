@@ -8,9 +8,9 @@ function crabs ()
  cmd ="null";
 
   playgame = 1;
-  while(playgame && cmd != "Q")
+  while(playgame == 1 && cmd != "Q")
 
-   level = drawStartScreen( "crowSprite.png" );
+   level = drawStartScreen( "StartScreen.png" );
 
    [mapHeight , mapWidth] = drawMap( "BGImage.png" );
 
@@ -94,9 +94,8 @@ function crabs ()
         % draw jellyfish
         jellyGraphics(:,j) = drawJelly(xJelly(j),yJelly(j),thetaJelly(j),sizeJelly);
       endfor
-      if((cmd == "Q"))
-        break
-      endif
+
+
 
       % read keyboard
       commandwindow();
@@ -116,7 +115,8 @@ function crabs ()
 
       [captainGraphics,xNet,yNet] = drawCaptain(xCapt, yCapt, thetaCapt, sizeCapt);
 
-      endif
+    endif
+
 
       for k=1:numCrabs
 
@@ -153,7 +153,16 @@ function crabs ()
 
         endif
 
-      endfor
+    endfor
+
+    if(cmd == "Q")
+      close all;
+      return;
+    endif
+    
+     if(catches == numCrabs || healthCapt <= 0)
+        break;
+      endif
 
 
       fflush(stdout);
@@ -161,9 +170,11 @@ function crabs ()
 
     endwhile
 
-    playGame = drawEndScreen("endScreen.png",crabsCaught,numCrabs);
-
-
+      if(catches != numCrabs)
+        playgame = drawEndScreen("CrabsWin.png",catches,numCrabs);
+      else
+        playgame = drawEndScreen("CaptainWins.png",catches,numCrabs);
+      endif
 
   endwhile
 

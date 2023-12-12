@@ -1,12 +1,12 @@
 function restart = drawEndScreen (imgName,crabsCaught,numCrabs)
 
 %draw the end screen
-  drawMap(imgName);
+  [imHeight, imWidth] = drawMap(imgName);
 
      hold on
-       myMessage=['Good Job! You Caught  ', num2str(crabsCaught), ' out of ', …
-                              num2str(numCrabs),' crabs!' ];
-       textLoc = [350,750];
+       myMessage=['Good Job! You Caught  ', num2str(crabsCaught), ' out of ', num2str(numCrabs),' crabs!' ];
+       %textLoc = [350,750];
+       textLoc = [imHeight + 30,750];
        textHandle=text(textLoc(1), textLoc(2), myMessage, 'FontSize', 30, 'Color', 'red');
 
        pause(5)
@@ -24,20 +24,18 @@ function restart = drawEndScreen (imgName,crabsCaught,numCrabs)
           cmd=kbhit(1);
 
           if( cmd == 'y' || cmd == 'Y')
-                restart = 1;
-                break;
+            restart = 1;
+            break;
           elseif(cmd == 'n' || cmd == 'N')
-                restart = 0;
-                break;
+            restart = 0;
+            break;
           endif
 
           pause(.1)
 
         endwhile
 
-
      hold off
-
 
 endfunction
 

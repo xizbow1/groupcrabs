@@ -4,7 +4,7 @@ function level = getLevel ( )
       commandwindow();
       cmd = kbhit(1);
       
-      if(cmd == "1" || cmd == "2" || cmd == "3" || cmd == "4" || cmd == "5" || cmd == "6" || cmd == "7")
+      if(str2num(cmd) > 0 && str2num(cmd) < 10)
         level = str2num(cmd);
         break;    
       endif
